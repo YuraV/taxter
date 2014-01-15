@@ -1,2 +1,32 @@
-%h2
-  INDEX PAGE
+%table
+  %thead
+    %tr
+      %th
+        e-mail
+      %th
+        Name
+      %th
+        Second Nmae
+      %th
+        Birth Date
+      %th
+        Role
+  - @users.each do |u|
+    %tr
+      %td
+        = u.email
+      %td
+        = u.name
+      %td
+        = u.second_name
+      %td
+        = u.birth_date
+      %td
+        = u.roles_name.join(", ").humanize
+      %td
+        = link_to "Edit", edit_user_path(u)
+      %td
+        = link_to "Show", user_path(u)
+      %td
+        = link_to "Destroy", user_path(u), method: :delete, confirm: "Are You Sure ?"
+

@@ -25,7 +25,14 @@ gem 'jquery-rails'
 gem "haml", "~> 4.0.5"
 gem 'devise'
 gem 'html2haml'
+gem 'bootstrap-sass', '~> 2.3.2.1'
+gem 'facebox-rails'
+gem "rolify",        :git => "git://github.com/EppO/rolify.git"
+gem "cancan"
 
+group :development do
+  gem 'quiet_assets'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

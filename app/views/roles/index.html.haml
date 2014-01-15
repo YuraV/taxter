@@ -1,0 +1,13 @@
+%table
+  %thead
+    %tr
+      %th
+        ID
+      %th
+        Name
+  - @roles.each do |r|
+    %tr
+      %td
+        = r.id
+      %td
+        = r.name
