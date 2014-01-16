@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
-  before_filter :user_find, except: [:index, :create, :new]
 
+  before_filter :user_find, except: [:index, :create, :new]
 
   respond_to :html
 

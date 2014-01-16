@@ -1,4 +1,5 @@
 class RolesController < ApplicationController
+
   respond_to :html
   before_filter :find_role, except: [:index, :create, :new]
 
@@ -7,7 +8,7 @@ class RolesController < ApplicationController
   end
 
   def new
-
+    @role = Role.new
   end
 
   def create

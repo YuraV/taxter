@@ -2,12 +2,61 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    user ||= User.new
-    if user.has_role? :administrator
-      can :manage, :all
-    else
-      can :read, :all
+
+    can(:manage, :all) do |u|
+      user.roles.any?(&:can_manage_all)
     end
+##################################### User ################################
+    can(:read, User) do |u|
+      user.roles.any?(&:can_read)
+    end
+
+    can(:create, User) do |u|
+      user.roles.any?(&:can_create)
+    end
+
+    can(:edit, User) do |u|
+      user.roles.any?(&:can_create)
+    end
+
+    can(:update, User) do |u|
+      user.roles.any?(&:can_create)
+    end
+
+    can(:delete, User) do |u|
+      user.roles.any?(&:can_destroy)
+    end
+####################################  Roles ##################################
+
+    can(:create, Role) do |u|
+      user.roles.any?(&:can_create)
+    end
+
+    can(:update, Role) do |u|
+      user.roles.any?(&:can_create)
+    end
+
+    can(:edit, Role) do |u|
+      user.roles.any?(&:can_create)
+    end
+
+    can(:read, Role) do |u|
+      user.roles.any?(&:can_read)
+    end
+
+    can(:delete, Role) do |u|
+      user.roles.any?(&:can_destroy)
+    end
+
+    #user ||= User.new
+    #if user.has_role? :administrator
+    #  can :manage, :all
+    #else
+    #  can :read, :all
+    #end
+
+
+
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)

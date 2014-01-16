@@ -3,5 +3,26 @@
     = f.label :name
     %br
     = f.text_field :name
+
+  %div
+    = f.label :can_read
+    = f.check_box :can_read, {}, "true", "false"
+
+  %div
+    = f.label :can_edit_users
+    = f.check_box :can_edit_users, {}, "true", "false"
+
+  %div
+    = f.label :can_create
+    = f.check_box :can_create, {}, "true", "false"
+
+  %div
+    = f.label :can_destroy
+    = f.check_box :can_destroy, {}, "true", "false"
+
+  %div
+    = f.label :can_manage_all
+    = f.check_box :can_manage_all, {}, "true", "false"
+
   %div
     = f.submit

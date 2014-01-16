@@ -11,14 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140115101105) do
+ActiveRecord::Schema.define(:version => 20140116083820) do
 
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.integer  "resource_id"
     t.string   "resource_type"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.boolean  "can_edit_users"
+    t.boolean  "can_manage_all", :default => false
+    t.boolean  "can_read",       :default => true
+    t.boolean  "can_create",     :default => false
+    t.boolean  "can_destroy",    :default => false
   end
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
