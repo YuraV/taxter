@@ -29,7 +29,7 @@ gem 'bootstrap-sass', '~> 2.3.2.1'
 gem 'facebox-rails'
 gem "rolify",        :git => "git://github.com/EppO/rolify.git"
 gem "cancan"
-
+gem 'simple_form'
 group :development do
   gem 'quiet_assets'
 end

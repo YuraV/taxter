@@ -12,6 +12,10 @@ class User < ActiveRecord::Base
 
   after_create :set_default_role
 
+  validates :email, :presence => true, :exclusion => {:in => %w(admin@mail.ru),
+                                                      message: "E-mail %{value} is reserved."}
+  validates :name, format: {with: /^[a-zA-Z0-9]+$/}
+  validates :second_name, format: {with: /^[a-zA-Z0-9]+$/}
 private
   def set_default_role
     add_role "User"
