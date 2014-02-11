@@ -22,7 +22,8 @@
       %td
         = user.birth_date
       %td
-        = user.roles_name.join(", ").humanize
+        - user.roles_name.each do |r|
+          = r.humanize
       %td
         = render_link_to_edit(user)
       %td

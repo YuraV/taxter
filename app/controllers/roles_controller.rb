@@ -1,5 +1,9 @@
 class RolesController < ApplicationController
+
+  load_and_authorize_resource
+
   respond_to :html
+
   before_filter :find_role, except: [:index, :create, :new]
 
   def index
