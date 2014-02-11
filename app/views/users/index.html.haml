@@ -11,22 +11,22 @@
         Birth Date
       %th
         Role
-  - @users.each do |u|
+  - @users.each do |user|
     %tr
       %td
-        = u.email
+        = user.email
       %td
-        = u.name
+        = user.name
       %td
-        = u.second_name
+        = user.second_name
       %td
-        = u.birth_date
+        = user.birth_date
       %td
-        = u.roles_name.join(", ").humanize
+        = user.roles_name.join(", ").humanize
       %td
-        = link_to "Edit", edit_user_path(u)
+        = render_link_to_edit(user)
       %td
-        = link_to "Show", user_path(u)
+        = link_to "Show", user_path(user)
       %td
-        = link_to "Destroy", user_path(u), method: :delete, confirm: "Are You Sure ?"
+        = link_to "Destroy", user_path(user), method: :delete, confirm: "Are You Sure ?"
 

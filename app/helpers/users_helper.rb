@@ -6,4 +6,14 @@ module UsersHelper
       end
     end
   end
+
+
+  def edit_user_link(user)
+    user.id != current_user.id ? edit_user_path(user) : edit_user_registration_path
+  end
+
+  def render_link_to_edit(user)
+    link_to("Edit", edit_user_link(user))
+  end
+
 end
