@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   validates :second_name, format: {with: /^[a-zA-Z0-9]+$/, message: "should have A-Z 0-9 format, no space"}
 
   validates_date :birth_date, :before => lambda { 18.years.ago },
-                 :before_message => "must be at least 18 years old"
+                 :before_message => I18n.t("must be at least 18 years old")
 private
   def set_default_role
     add_role "User"
