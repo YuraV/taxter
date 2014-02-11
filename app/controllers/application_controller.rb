@@ -7,12 +7,8 @@ class ApplicationController < ActionController::Base
     session[:return_to] = request.request_uri
   end
 
-  def default_rescue
-    session[:return_to] = root_path
-  end
-
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to(session[:return_to] || default_rescue, :alert => exception.message)
+    redirect_to(session[:return_to] || root_path, :alert => exception.message)
     session[:return_to] = nil
   end
 end
