@@ -10,6 +10,8 @@ class Ability
       can :crud, :all
     elsif user.has_role? :user
       can :index, User
+    elsif user
+      can :read, :all
     end
     # Define abilities for the passed in user here. For example:
     #

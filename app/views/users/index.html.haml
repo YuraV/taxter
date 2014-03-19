@@ -1,4 +1,4 @@
-%table
+%table.table.table-striped.table-bordered.table-hover
   %thead
     %tr
       %th
@@ -23,11 +23,8 @@
         = user.birth_date
       %td
         - user.roles_name.each do |r|
-          = r.humanize
-      %td
-        = render_link_to_edit(user)
-      %td
-        = link_to "Show", user_path(user)
-      %td
-        = link_to "Destroy", user_path(user), method: :delete, confirm: "Are You Sure ?"
+          = r.humanize if user.roles
 
+      = td_user_crud_action_links(user, :show)
+      = td_user_crud_action_links(user, :edit)
+      = td_user_crud_action_links(user, :destroy)
